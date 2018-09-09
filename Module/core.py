@@ -29,7 +29,20 @@ class AreaMap(object):
         pass
 
 
-class Act(object):
+
+
+
+
+class Character(object): 
+    def __init__ (self,id,nickname):
+        self.id = id
+        self.nickname = nickname
+        self.cordinateX = 0
+        self.cordinateY = 0
+
+    def playerRegister(self,id,nickname):
+        pass
+
     def playerLogin(self, parameter_list):
         pass
 
@@ -40,8 +53,25 @@ class Act(object):
     def lookAround(self,parameter_list):
         pass
 
-    def moveTo(self, parameter_list):
-        pass
+    def moveTo(self, Direction):
+        if Direction == 'NW' :
+            self.cordinateX -= 1
+            self.cordinateY += 1
+        elif Direction == 'NE' :
+            self.cordinateX += 1
+            self.cordinateY += 1
+        elif Direction == 'N' :
+            self.cordinateY += 1
+        elif Direction == 'SW' :
+            self.cordinateX -= 1
+            self.cordinateY -= 1
+        elif Direction == 'SE' :
+            self.cordinateX += 1
+            self.cordinateY -= 1
+        elif Direction == 'S' :
+            self.cordinateY -= 1
+        else: return 0
+
 
     def checkInventory(self, parameter_list):
         pass
@@ -58,15 +88,6 @@ class Act(object):
     def checkASS(self, parameter_list):
         pass
     
-
-
-
-class Charater(Act):
-    def __init__ (self,id,nickname):
-        self.id = id
-        self.nickname = nickname
-    
-
 
 # 定义 角色 类
 # 角色 的属性有 id（唯一）、nickname显示名称 等
